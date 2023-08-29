@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>PORTFOLIO</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+        <meta name="author" content="templatemo">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- animate -->
+		<link rel="stylesheet" href="/static/css/animate.min.css">
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+		<!-- font-awesome -->
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<!-- google font -->
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700,800' rel='stylesheet' type='text/css'>
+		<!-- fullpage -->
+		<link rel="stylesheet" href="/static/css/jquery.fullPage.css">
+		<!-- custom -->
+		<link rel="stylesheet" href="/static/css/templatemo-style.css">
+		
+
+		<style>
+.skill-icons
+    {
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+        color: #D43F52;
+        font-size: 18px;
+        margin-right: 24px;
+        width: 45px;
+        height: 45px;
+        line-height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        transition: all 0.4s ease-in;
+    }
+.skill-icons:hover
+    {
+        background: #ffffff;
+        cursor: pointer;
+    }
+</style>
+	</head>
+	<body>
+
+	<div id="fullpage">
+
+		<!-- start home -->
+		{% for i in home %}
+		<div id="home" class="section" style="background-image: url('{{i.image.url}}');">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2"></div>
+					
+					<div class="col-md-8 wow fadeIn" data-wow-delay="0.9s">
+						<h3>Simple and Elegant</h3>
+						<h1>{{i.Full_name}}</h1>
+						<h2 class="rotate">{{i.role}}</h2>
+						<p>{{i.description | safe}}</p>
+						{% endfor %}
+						<a href="#work" class="btn btn-default smoothScroll wow fadeInUp" data-wow-delay="1s">Get started</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end home -->
+
+		<!-- start work -->
+		<div id="work" class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 wow bounce">
+						<h2>WHAT I DO</h2>
+					</div>
+                </div>  
+                
+                <div class="row">
+					{% for i in services %}
+					<div class="col-md-6 col-xs-11 wow fadeInUp" data-wow-delay="0.6s">
+						<div class="media">
+							<div class="media-object media-left " id="">
+								<i class="fa {{i.service_icon}}" ></i>
+							</div>
+							<div class="media-body">
+								<h3 class="media-heading">{{i.service_name}}</h3>
+								<p>{{i.service_description | safe}}</p>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div> 
+		</div>
+		<!-- end work -->
+
+		<!-- start about -->
+		<div id="about" class="section">
+			<div class="container">
+				<div class="row">
+					{% for i in about %}
+					<div class="col-md-6 col-xs-11 wow fadeInLeft" data-wow-delay="0.9s">
+						<img src="{{i.about_image.url}}" class="img-responsive" alt="" height="200px" width="200px" style="border-radius: 50%; float: left;  shape-outside:circle(50%); margin: 0 15px 15px 0;" >
+						<h2 >ABOUT {{i.about_name}}</h2>
+						<h4>{{i.about_role}}</h4>
+						<p>{{i.about_description | safe}}</p>
+					</div>
+					{% endfor %}
+					<div class="col-md-6 col-xs-11 wow fadeInRight" data-wow-delay="0.9s"  style="padding-top:20px">
+						<h2 class="text-center">Skills</h2>
+						{% for i in skills %}
+						<div class="col-md-6 col-xs-11 wow fadeInUp" data-wow-delay="0.6s">
+							<div class="media pt-5" style="margin-top:20px;">
+								<div class="media-object media-left">
+									<i class="skill-icons {{i.icon_name}}"></i>
+								</div>
+								<div class="media-body " style="padding-top:10px">
+									<h3 class="media-heading">{{i.skill_name}}</h3>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end about -->
+
+		<!-- start portfolio -->
+		<div id="portfolio" class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="wow bounce">PORTFOLIO</h2>
+				</div>
+				{% for i in portfolio %}
+				<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
+					<div class="portfolio-thumb">
+						<img src="{{i.project_image.url}}" class="img-responsive" alt="portfolio img" >
+							<div class="portfolio-overlay">
+								<h4>{{i.project_name}}</h4>
+								<a href="{{i.project_link}}" style="font-size: large; color: white; font-weight: bold;" target=blank>Project Link</a>
+							</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<!-- end portfolio -->
+
+		<!-- start contact -->
+		<div id="contact" class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-lg-offset-1 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+						<address>
+							<p class="contact-title">CONTACT ME</p>
+							{% for i in contact_me %}
+							<p><i class="fa fa-phone"></i> {{i.number}}</p>
+							<p><i class="fa fa-envelope-o"></i> {{i.mail}}</p>
+							<p><i class="fa fa-solid fa-location-dot"></i> {{i.address}}</p>
+							{% endfor %}
+						</address>
+					</div>
+					<div class="col-lg-6 col-md-6 col-xs-10 wow fadeInUp" data-wow-delay="0.6s">
+						<form role="form" method="" action="">
+							<input name="name" type="text" class="form-control" id="name" placeholder="Your Name">
+							<input name="email" type="email" class="form-control" id="email" placeholder="Your Email">
+							<textarea name="message" rows="5" class="form-control" id="message" placeholder="Your Message"></textarea>
+							<input name="send" type="submit" class="form-control" id="send" value="SEND ME">
+						</form>
+					</div>
+					<div class="col-md-1 col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+		<!-- end contact -->
+
+		<!-- start footer -->
+		<footer>
+			<div id="footer" class="container">
+				<div class="row">
+					<div class="col-md-12 wow fadeIn" data-wow-delay="0.9s">
+						<p>Copyright &copy; 2023 Hamza Tariq Personal Profile.</p>
+						<hr>
+						<ul class="social-icon" style="font-size:30px;">
+							{% for i in social_links %}
+							<li><a href="{{i.Linkin_link}}" class="fa-brands fa-linkedin" target=blank></a></li>
+							<li><a href="{{i.Github_link}}" class="fa-brands fa-github" target=blank></a></li>
+							<li><a href="{{i.Instagram_link}}" class="fa-brands fa-instagram" target=blank></a></li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- end footer -->
+
+	</div>
+
+		<!-- jQuery -->
+		<script src="/static/js/jquery.js"></script>
+		<!-- bootstrap -->
+		<script src="/static/js/bootstrap.min.js"></script>
+		<!-- fullpage -->
+		<script src="/static/js/jquery.fullPage.js"></script>
+		<!-- smoothScroll -->
+		<script src="/static/js/smoothscroll.js"></script>
+		<!-- wow -->
+		<script src="/static/js/wow.min.js"></script>
+		<!-- text rotater -->
+		<script src="/static/js/jquery.simple-text-rotator.js"></script>
+		<!-- custom -->
+		<script src="/static/js/custom.js"></script>
+
+	</body>
+</html>
