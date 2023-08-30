@@ -107,8 +107,9 @@
 				<div class="row">
 					{% for i in about %}
 					<div class="col-md-6 col-xs-11 wow fadeInLeft" data-wow-delay="0.9s">
-						<img src="{{i.about_image.url}}" class="img-responsive" alt="" height="200px" width="200px" style="border-radius: 50%; float: left;  shape-outside:circle(50%); margin: 0 15px 15px 0;" >
-						<h2 >ABOUT {{i.about_name}}</h2>
+						<img src="{{i.about_image.url}}" class="img-responsive" alt="" height="200px" width="200px" style="border-radius: 50%; float: left;  shape-outside:circle(50%); margin: 0 15px 20px 0;" >
+						<h2>ABOUT</h2>
+						<h2 >{{i.about_name}}</h2>
 						<h4>{{i.about_role}}</h4>
 						<p>{{i.about_description | safe}}</p>
 					</div>
